@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharvesh V - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --google-blue: #4285f4;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc04;
+            --google-green: #34a853;
+            --text-dark: #202124;
+            --text-medium: #3c4043;
+            --text-light: #5f6368;
+            --bg-page: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-light: #e8eaed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Resume Container */
+        .resume-container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            padding: 60px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--google-blue);
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .header-left h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .role-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--google-blue);
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--text-light);
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--google-blue);
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-light);
+            margin-left: 12px;
+        }
+
+        /* PROJECT/JOB ITEMS */
+        .job-item {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .job-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .job-description {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .job-description li {
+            margin-bottom: 4px;
+        }
+
+        .tech-stack {
+            font-size: 11px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* SKILLS */
+        .skill-category {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 700;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .skill-category:first-child {
+            margin-top: 0;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-badge {
+            background-color: #f1f3f4;
+            color: var(--text-medium);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+        }
+
+        .skill-badge.highlight {
+            background-color: #e8f0fe;
+            color: #1967d2;
+            border-color: #d2e3fc;
+        }
+
+        /* EDUCATION */
+        .education-box {
+            padding: 16px;
+            background: #f8f9fa;
+            border-left: 3px solid var(--google-green);
+            border-radius: 4px;
+        }
+
+        .degree {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .school {
+            font-size: 12px;
+            color: var(--text-medium);
+        }
+
+        .year {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* EASTER EGG - TERMINAL */
+        .terminal-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+            z-index: 100;
+            border: none;
+        }
+
+        .terminal-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        .terminal-window {
+            position: fixed;
+            bottom: -350px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 650px;
+            height: 320px;
+            background: #1e1e1e;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -8px 32px rgba(0,0,0,0.4);
+            transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal-window.open {
+            bottom: 0;
+        }
+
+        .terminal-header {
+            padding: 10px 16px;
+            background: #2d2d2d;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .dot { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            cursor: pointer;
+        }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 12px;
+            color: #9ca3af;
+            font-size: 12px;
+            font-family: monospace;
+        }
+
+        .terminal-body {
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            color: #e6edf3;
+            font-size: 13px;
+            overflow-y: auto;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .cmd { 
+            color: var(--google-blue); 
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        
+        .cmd:first-child {
+            margin-top: 0;
+        }
+
+        .output { 
+            color: #8b949e; 
+            margin-left: 0; 
+            line-height: 1.6; 
+        }
+
+        .success { 
+            color: var(--google-green);
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm 15mm;
+            }
+            
+            body { 
+                background: white;
+                font-size: 95%; /* Slight reduction for fitting */
+            }
+            
+            .resume-container { 
+                box-shadow: none; 
+                margin: 0; 
+                padding: 0;
+                border-top: none;
+                max-width: 100%;
+                min-height: 0;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .job-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            /* Slightly tighter spacing for print */
+            header {
+                margin-bottom: 24px;
+                padding-bottom: 16px;
+            }
+            
+            section {
+                margin-bottom: 24px;
+            }
+            
+            .job-item {
+                margin-bottom: 14px;
+            }
+            
+            .terminal-btn, .terminal-window { 
+                display: none !important; 
+            }
+            
+            a { 
+                text-decoration: none; 
+                color: inherit; 
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 40px 24px;
+            }
+            header {
+                flex-direction: column;
+            }
+            .header-right {
+                text-align: left;
+                margin-top: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <header>
+            <div class="header-left">
+                <h1>Sharvesh V</h1>
+                <div class="role-title">AI Engineer & Researcher</div>
+                <p class="tagline">
+                    AI-focused engineer specializing in custom neural architectures and computational innovation. 
+                    2+ years of independent research into alternative computing paradigms. Builder of production systems at 3 AM.
+                </p>
+            </div>
+            <div class="header-right">
+                <span class="contact-item">📧 sharveshv290@gmail.com</span>
+                <span class="contact-item">📱 +91 7708581107</span>
+                <span class="contact-item">📍 Chennai, Tamil Nadu</span>
+            </div>
+        </header>
+
+        <!-- TECHNICAL SKILLS -->
+        <section>
+            <h2>Technical Skills</h2>
+            
+            <span class="skill-category">PRIMARY EXPERTISE</span>
+            <div class="skills-grid">
+                <span class="skill-badge highlight">Python</span>
+                <span class="skill-badge highlight">C/C++</span>
+                <span class="skill-badge highlight">Rust</span>
+                <span class="skill-badge highlight">Neural Networks</span>
+                <span class="skill-badge highlight">Computer Vision</span>
+                <span class="skill-badge highlight">Deep Learning</span>
+            </div>
+
+            <span class="skill-category">FULL-STACK & CLOUD</span>
+            <div class="skills-grid">
+                <span class="skill-badge">Flutter/Dart</span>
+                <span class="skill-badge">JavaScript/TypeScript</span>
+                <span class="skill-badge">Firebase</span>
+                <span class="skill-badge">AWS</span>
+                <span class="skill-badge">REST APIs</span>
+            </div>
+
+            <span class="skill-category">HARDWARE & EMBEDDED</span>
+            <div class="skills-grid">
+                <span class="skill-badge">PSoC</span>
+                <span class="skill-badge">Embedded C</span>
+                <span class="skill-badge">Assembly</span>
+                <span class="skill-badge">Microcontrollers</span>
+                <span class="skill-badge">IoT Sensors</span>
+            </div>
+
+            <span class="skill-category">ADDITIONAL</span>
+            <div class="skills-grid">
+                <span class="skill-badge">Lua</span>
+                <span class="skill-badge">NumPy</span>
+                <span class="skill-badge">First Principles Thinking</span>
+                <span class="skill-badge">Rapid Prototyping</span>
+                <span class="skill-badge">System Architecture</span>
+            </div>
+        </section>
+
+        <!-- AI PROJECTS -->
+        <section>
+            <h2>AI & Machine Learning Projects</h2>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Medical MRI Scan Analysis System</span>
+                    <span class="job-meta">2025</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed custom convolutional neural network for automated MRI scan analysis and medical diagnostics</li>
+                        <li>Trained model from scratch to identify and classify imaging patterns, significantly reducing analysis time</li>
+                        <li>Implemented data augmentation pipeline to handle class imbalance in medical datasets</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Python, TensorFlow, Computer Vision, Medical Imaging</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Multi-Modal AI Resonance System</span>
+                    <span class="job-meta">2024-2025</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Research project exploring synchronized multi-modal training across audio, video, and text inputs</li>
+                        <li>Implemented custom neural architecture studying pattern resonance across different data modalities</li>
+                        <li>Developed novel wavelength-based data representation and storage mechanisms</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Python, NumPy, Signal Processing, Custom Architecture</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Human Emotional Resonance Simulation</span>
+                    <span class="job-meta">2024</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Simulated human emotional response patterns using computational models in NumPy</li>
+                        <li>Explored mathematical representations of emotional states and transitions in multi-dimensional space</li>
+                        <li>Applied signal processing techniques to model behavioral patterns</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Python, NumPy, Behavioral Analysis, Mathematical Modeling</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTION SYSTEMS -->
+        <section>
+            <h2>Production Systems & IoT</h2>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Enterprise Fire Audit & Tracking System</span>
+                    <span class="job-meta">2025</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Architected full-stack system managing 5,000+ fire extinguisher units for TCS deployment</li>
+                        <li>Built offline-first mobile app with Flutter ensuring 100% data integrity in zero-connectivity zones</li>
+                        <li>Developed web admin dashboard with Firebase, reducing audit reporting time by 60%</li>
+                        <li>Implemented QR-based tracking with real-time synchronization across platforms</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Flutter, Dart, Firebase, Netlify, QR Technology, Mobile & Web</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Smart Agriculture: PSoC Fertilizer Analysis System</span>
+                    <span class="job-meta">2025</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Engineered hardware-software system for real-time soil NPK analysis and fertilizer optimization</li>
+                        <li>Programmed PSoC 5LP microcontroller with custom sensor drivers for industrial-grade NPK sensors</li>
+                        <li>Developed Python middleware to decode raw UART sensor data into actionable growth metrics</li>
+                        <li>Optimized power consumption achieving 24h+ runtime on battery for field deployment</li>
+                    </ul>
+                    <div class="tech-stack">Tech: PSoC, Embedded C, Python, UART, IoT Sensors, Agriculture</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Security Honeypot System</span>
+                    <span class="job-meta">2024</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Designed deceptive security infrastructure to detect and analyze intrusion attempts</li>
+                        <li>Implemented custom logging and threat intelligence gathering mechanisms</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Network Security, System Design, Threat Analysis</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">AWS Cloud Data Migration</span>
+                    <span class="job-meta">2024</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Architected and executed large-scale enterprise data migration to AWS infrastructure</li>
+                        <li>Designed storage solutions with security protocols and cost optimization strategies</li>
+                    </ul>
+                    <div class="tech-stack">Tech: AWS, Cloud Architecture, Data Engineering</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section>
+            <h2>Research & Exploration</h2>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Alternative Computational Paradigms Beyond Binary Logic</span>
+                    <span class="job-meta">2023-Present (2+ years)</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Independent research into computational models extending beyond traditional binary systems</li>
+                        <li>Exploring multi-state logic systems (7-state) with quantum-inspired simulation</li>
+                        <li>Investigating wavelength-based data storage and resonance-driven computation</li>
+                        <li>Hardware-constrained ongoing research requiring analog components for full implementation</li>
+                    </ul>
+                    <div class="tech-stack">Tech: C, C++, Rust, Python, Custom Architecture, Theoretical CS</div>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">High-Parameter AI Optimization Research</span>
+                    <span class="job-meta">2024</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Research into running trillion-parameter scale models on consumer-grade hardware</li>
+                        <li>Exploring novel compression and optimization techniques pushing efficiency boundaries</li>
+                    </ul>
+                    <div class="tech-stack">Tech: Model Compression, Optimization, Edge Computing</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <h2>Education</h2>
+            <div class="education-box">
+                <div class="degree">Bachelor of Technology in Information Technology</div>
+                <div class="school">Vel Tech High Tech Dr. Rangarajan Dr. Sakunthala Engineering College, Avadi, Chennai</div>
+                <div class="year">2022 - 2026 | Currently in 3rd Year</div>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL -->
+        <section style="margin-bottom: 0;">
+            <h2>Additional Information</h2>
+            <div class="job-description">
+                <strong>Rapid Prototyping:</strong> Full-stack applications from concept to localhost in 30-60 minutes<br>
+                <strong>Portfolio:</strong> 20+ production projects across AI, web, mobile, cloud, and embedded systems<br>
+                <strong>Approach:</strong> First-principles thinker discovering mechanisms independently before learning terminology<br>
+                <strong>Languages:</strong> 15+ programming languages across multiple domains
+            </div>
+        </section>
+    </div>
+
+    <!-- EASTER EGG TERMINAL -->
+    <button class="terminal-btn" onclick="toggleTerminal()">⌘</button>
+    
+    <div class="terminal-window" id="terminal">
+        <div class="terminal-header">
+            <div class="dot red" onclick="toggleTerminal()"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="terminal-title">sharvesh@builder:~</span>
+        </div>
+        <div class="terminal-body">
+            <div class="cmd">$ whoami</div>
+            <div class="output">Builder. Architect. The one who codes at 3 AM.</div>
+            
+            <div class="cmd">$ ls -la ~/projects/</div>
+            <div class="output">
+drwxr-xr-x  medical_ai/<br>
+drwxr-xr-x  enterprise_systems/<br>
+drwxr-xr-x  iot_hardware/<br>
+drwxr-xr-x  quantum_research/ [CLASSIFIED]<br>
+drwxr-xr-x  experiments/ [400+ iterations]
+            </div>
+
+            <div class="cmd">$ cat philosophy.txt</div>
+            <div class="output">
+"I don't memorize syntax. I architect systems."<br>
+"I don't follow books. I discover mechanisms."<br>
+"Pressure doesn't stop me. Mundane work does."
+            </div>
+
+            <div class="cmd">$ echo $GOAL</div>
+            <div class="output success">Build the impossible. Break the limits. Join Google.</div>
+
+            <div class="cmd">$ ./ready_for_interview.sh</div>
+            <div class="output success">
+[✓] Resume loaded<br>
+[✓] Skills verified<br>
+[✓] Passion confirmed<br>
+<br>
+STATUS: READY TO BUILD AMAZING THINGS
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTerminal() {
+            const term = document.getElementById('terminal');
+            term.classList.toggle('open');
+        }
+
+        // Console easter egg
+        console.log('%c🚀 BUILDER MODE ACTIVATED', 'color: #4285f4; font-size: 20px; font-weight: bold;');
+        console.log('%cSharvesh V - AI Engineer & System Architect', 'color: #34a853; font-size: 14px;');
+        console.log('%c"The one who thinks in systems, not syntax"', 'color: #fbbc04; font-size: 12px;');
+        console.log('%cContact: sharveshv290@gmail.com', 'color: #5f6368; font-size: 11px;');
+    </script>
+</body>
+</html>
